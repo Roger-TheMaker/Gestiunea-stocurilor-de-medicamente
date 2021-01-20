@@ -1,8 +1,10 @@
+package sqlite;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Connect1 {
+public class Connect {
     private static Connection conn = null;
 
     public static Connection connect(String nameDB) {
