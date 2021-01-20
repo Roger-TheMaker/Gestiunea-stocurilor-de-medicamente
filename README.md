@@ -4,6 +4,12 @@ Proiectul reprezintă o aplicație pentru gestiunea stocurilor de medicamente al
 Limbajul de programare folosit este Java, Swing(un serviciu de API pentru interfete grafice care se integrează foarte bine cu Java)
 pentru realizarea mai timpurie a UI-ului datorită simplității de care dă dovadă.
 Aplicația prelucrează datele existente într-o bază de date SQLITE, care a fost integrată proiectului prin driverul jdbc.
+
+Folosim o bază de date relațională pentru că având contextul unei ierarhii de clase bine stabilită și structurată, cu relații foarte clare
+între obiectele sale, ne este mult mai simplu să reprezentăm această ierarhie prin intermediul a ceva mai organizat, care ne oferă
+posibiltatea scrierii relațiilor între entitățile noastre, așa cum o face o bază de date relațională.
+După stabilirea concretă a relațiilor care există între obiecte noastre, tot procesul de dezvoltare devine unul mai simplu.
+
 IDE-ul folosit este Intellij datorită capacităților sale de development remarcabil.
 Aplicatia prezintă următoarele functionalități:
 - afisarea tuturor farmaciilor dintr-un anumit oras (ex: Timisoara: Farmacia Vlad, Farmacia Dona, Farmacia Operei)
