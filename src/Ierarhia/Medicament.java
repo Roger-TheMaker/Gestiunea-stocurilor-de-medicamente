@@ -15,6 +15,9 @@ public class Medicament {
     public String getNume() {
         return nume_Medicament;
     }
+    public int  getCodMedicament() {
+        return cod_Medicament;
+    }
 
     @Override
     public boolean equals(Object o) {
