@@ -2,7 +2,9 @@
 
 Proiectul reprezintă o aplicație pentru gestiunea stocurilor de medicamente ale farmaciilor din diferite orașe. 
 Limbajul de programare folosit este Java, Swing(un serviciu de API pentru interfete grafice care se integrează foarte bine cu Java)
-pentru realizarea mai timpurie a UI-ului datorită simplității de care dă dovadă.
+pentru realizarea mai timpurie a UI-ului.
+Cunoașterea aplicațiilor/frameworkurilor J2EE, Java Server Faces, MyBatis, Hibernate, Apache, Spring ar fi ușurat procesul
+de development si ar fi asigurat hostarea aplicatiei pe un domeniu online, însă nu am avut experienta necesară de lucru cu acestea.
 Aplicația prelucrează datele existente într-o bază de date SQLITE, care a fost integrată proiectului prin driverul jdbc.
 
 Folosim o bază de date relațională pentru că având contextul unei ierarhii de clase bine stabilită și structurată, cu relații foarte clare
