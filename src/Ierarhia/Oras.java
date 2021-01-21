@@ -8,7 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-//fiecare oras ar trebui sa fie capabil sa isi indeplineasca singur aceste doua functionalitati
+//fiecare oras ar trebui sa fie capabil sa isi indeplineasca singur aceste doua functionalitati, aceea de afisare a farmaciilor existente in el
+//cat si pe cea de determinare/afisare a celor care au un anumit medicament in stoc
 
 public class Oras {
     private String nume_Oras;
@@ -18,10 +19,6 @@ public class Oras {
         return this.nume_Oras;
     }
 
-    /*
-    Avand in vedere ca nu este necesar sa ne cream tabelele si sa ne inseram direct din Java/Intellij
-    inregistrarile, putem folosi o altfel de abordare
-     */
 
     public  Oras(String nume, ArrayList<Farmacie> farmacii){
        this.farmacii_Oras=farmacii;
@@ -34,11 +31,6 @@ public class Oras {
 
     public void afiseaza_farmacii_pentru_oras(){
 
-        // Set<String> lista_de_nume_a_farmaciilor = farmacii_Oras.stream().map(Farmacie::getNume).collect(Collectors.toSet());
-        // System.out.println(lista_de_nume_a_farmaciilor);
-        //for(String numefarmacie: lista_de_nume_a_farmaciilor){
-        //nu e bine, trebuie sa fac referinta la oras in SQL, cumva
-
             Connection conn = Connect.connect("database.db");
 
             String sql_command = "SELECT * FROM farmacii WHERE nume= "+ "\'" + this.nume_Oras + "\'";
@@ -49,9 +41,12 @@ public class Oras {
                 rs = pstmt.executeQuery();
 
                 while (rs.next()) {
-                    String ceva1 = rs.getString("nume");
-                    String ceva2 = rs.getString("adresa");
-                    System.out.println(ceva1 + " " + ceva2);
+                    int id = rs.getInt("id");
+                    String nume = rs.getString("nume");
+                    String nume_oras = rs.getString("nume_oras");
+                    String adresa = rs.getString("adresa");
+                    String telefon = rs.getString("telefon");
+                    System.out.println(id + " " + nume + " " + nume_oras + " " + adresa + "" + telefon );
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -65,11 +60,11 @@ public class Oras {
             }
         }
 
-    public int afiseaza_cantitate_totala_de_medicamente_oras(Medicament medicament_anume){
-        int count=0;
+    public int afiseaza_cantitate_totala_dintr_un_medicament_oras(Medicament medicament_anume){
+        int count=0; //cantitatea de medicament respectiv
         Connection conn = Connect.connect("database.db");
 
-        String sql_command = "SELECT * FROM farmacii WHERE  stoc = " + "\'" + medicament_anume.getNume() + "\' and " +
+        String sql_command = "SELECT * FROM farmacii WHERE  stoc = " + "\'" + medicament_anume.getCodMedicament() + "\' and " +
                 "nume=" + "\'" + this.nume_Oras + "\'";
 
         ResultSet rs = null;
@@ -78,6 +73,7 @@ public class Oras {
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
+                //de fiecare data cand am avut  un nou rand a insemnat ca acea farmacie a avut medicamentul pe stoc.
                 count++;
             }
         } catch (SQLException e) {
