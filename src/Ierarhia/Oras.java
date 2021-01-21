@@ -65,7 +65,7 @@ public class Oras {
             }
         }
 
-    public int afiseaza_cantitate_totala_de_medicamente_oras(Medicament medicament_anume){
+    public int afiseaza_cantitate_totala_dintr_un_medicament_oras(Medicament medicament_anume){
         int count=0;
         Connection conn = Connect.connect("database.db");
 

@@ -57,7 +57,7 @@ public class App {
         oras.afiseaza_farmacii_pentru_oras();
     }
 
-    public void afiseaza_cantitate_totala_de_medicamente_pentru_un_oras_anume(Medicament medicament, Oras oras){
-        oras.afiseaza_cantitate_totala_de_medicamente_oras(medicament);
+    public void afiseaza_cantitate_totala_de_medicament_pentru_un_oras_anume(Medicament medicament, Oras oras){
+        oras.afiseaza_cantitate_totala_dintr_un_medicament_oras(medicament);
     }
 }
